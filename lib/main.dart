@@ -16,21 +16,39 @@ void main() {
   );
 }
 
+
+
 class DicePage extends StatelessWidget {
+
+  int leftImage = 1;
+  int rightImage = 4;
+
+  void changeNumber(){
+    leftImage = 2;
+    rightImage = 4;
+  }
+
   @override
   Widget build(BuildContext context) {
+
+
+
     return Container(
       child: Center(
         child: Row(
           children: <Widget>[
             Expanded(
               child: FlatButton(
-                child: Image.asset('images/dice1.png'),
+                onPressed: changeNumber,
+                child: Image.asset('images/dice$leftImage.png'),
               ),
             ),
             Expanded(
               child: FlatButton(
-                child: Image.asset('images/dice1.png'),
+                onPressed: (){
+                  print("Right button got pressed.");
+                },
+                child: Image.asset('images/dice$rightImage.png'),
               ),
             ),
           ],
